@@ -1,4 +1,4 @@
-$sf-font-type: 'googlefonts' !default; // or 'webfonts'
+$sf-font-type: 'google-fonts' !default; // or 'webfonts'
 
 @mixin sf-typography($tag) {
   @if map-has-key($typographies, $tag) {
@@ -8,14 +8,14 @@ $sf-font-type: 'googlefonts' !default; // or 'webfonts'
     @if map-has-key($typography, 'font') {
       $font: map-get($typography, 'font');
 
-      @if $sf-font-type == 'googlefonts' {
+      @if $sf-font-type == 'google-fonts' {
         @if map-has-key($typography, 'weight') {
           $weight: map-get($typography, 'weight');
           @include sf-google-fonts($font, $weight);
         } @else {
           @include sf-google-fonts($font);
         }
-      } @else {
+      } @else if $sf-font-type == 'webfonts' {
         @include sf-webfonts($font);
       }
     }
