@@ -4,31 +4,15 @@
 
 @font-face {font-family: 'AvenirLTStd-Book';src: url('../webfonts/348A78_0_0.eot');src: url('../webfonts/348A78_0_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/348A78_0_0.woff2') format('woff2'),url('../webfonts/348A78_0_0.woff') format('woff'),url('../webfonts/348A78_0_0.ttf') format('truetype');}
  
-@font-face {font-family: 'AvenirLTStd-MediumOblique';src: url('../webfonts/348A78_1_0.eot');src: url('../webfonts/348A78_1_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/348A78_1_0.woff2') format('woff2'),url('../webfonts/348A78_1_0.woff') format('woff'),url('../webfonts/348A78_1_0.ttf') format('truetype');}
- 
-@font-face {font-family: 'AvenirLTStd-BookOblique';src: url('../webfonts/348A78_2_0.eot');src: url('../webfonts/348A78_2_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/348A78_2_0.woff2') format('woff2'),url('../webfonts/348A78_2_0.woff') format('woff'),url('../webfonts/348A78_2_0.ttf') format('truetype');}
- 
-@font-face {font-family: 'AvenirLTStd-Medium';src: url('../webfonts/348A78_3_0.eot');src: url('../webfonts/348A78_3_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/348A78_3_0.woff2') format('woff2'),url('../webfonts/348A78_3_0.woff') format('woff'),url('../webfonts/348A78_3_0.ttf') format('truetype');}
- 
-@font-face {font-family: 'AvenirLTStd-BlackOblique';src: url('../webfonts/348A78_4_0.eot');src: url('../webfonts/348A78_4_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/348A78_4_0.woff2') format('woff2'),url('../webfonts/348A78_4_0.woff') format('woff'),url('../webfonts/348A78_4_0.ttf') format('truetype');}
- 
 @font-face {font-family: 'AvenirLTStd-Black';src: url('../webfonts/348A78_5_0.eot');src: url('../webfonts/348A78_5_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/348A78_5_0.woff2') format('woff2'),url('../webfonts/348A78_5_0.woff') format('woff'),url('../webfonts/348A78_5_0.ttf') format('truetype');}
 // stylelint-enable
 
 $avenir-black: 'AvenirLTStd-Black', sans-serif;
-$avenir-blackObl: 'AvenirLTStd-BlackOblique', sans-serif;
-$avenir-medium: 'AvenirLTStd-Medium', sans-serif;
-$avenir-mediumObl: 'AvenirLTStd-MediumOblique', sans-serif;
 $avenir-book: 'AvenirLTStd-Book', sans-serif;
-$avenir-bookObl: 'AvenirLTStd-BookOblique', sans-serif;
 
 // assign to $fonts map
 $fonts: (
   'avenir-black': $avenir-black,
-  'avenir-blackObl': $avenir-blackObl,
-  'avenir-medium': $avenir-medium,
-  'avenir-mediumObl': $avenir-mediumObl,
   'avenir-book': $avenir-book,
-  'avenir-bookObl': $avenir-bookObl,
 );
 
