@@ -1,1 +1,4 @@
 node_modules/
+
+# Ignore log file returned on npm error
+npm-debug.log
