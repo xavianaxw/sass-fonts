@@ -7,13 +7,13 @@ Helper class to define the typography you use in your project
 You can use inuitcss in your project by installing it using a package manager
 (recommended):
 
-**npm: (Coming Soon)**
+**npm:**
 
 ```
 $ npm install sass-fonts --save
 ```
 
-**yarn: (Coming Soon)**
+**yarn:**
 
 ```
 $ yarn add sass-fonts
