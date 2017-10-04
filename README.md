@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/xavianaxw/sass-fonts.svg?branch=master)](https://travis-ci.org/xavianaxw/sass-fonts) [![npm version](https://badge.fury.io/js/sass-fonts.svg)](https://badge.fury.io/js/sass-fonts)
+
 # What is sass-fonts ?
 
 Helper class to define the typography you use in your project
