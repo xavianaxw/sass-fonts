@@ -1,0 +1,13 @@
+// ==========================================================================||
+//  $fonts map is defined in settings/settings.fonts
+// ==========================================================================||
+
+@mixin sf-webfonts($typeface) {
+  @if map-has-key($fonts, $typeface) {
+    font-family: nth(map-get($fonts, $typeface), 1);
+    font-style: normal;
+    font-weight: normal;
+  } @else {
+    @error "`#{$typeface}` is not defined.";
+  }
+}

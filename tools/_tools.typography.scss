@@ -1,0 +1,47 @@
+$sf-font-type: 'googlefonts' !default; // or 'webfonts'
+
+@mixin sf-typography($tag) {
+  @if map-has-key($typographies, $tag) {
+    $typography: map-get($typographies, $tag);
+    $breakpoints: map-get($typography, 'breakpoints');
+
+    @if map-has-key($typography, 'font') {
+      $font: map-get($typography, 'font');
+
+      @if $sf-font-type == 'googlefonts' {
+        @if map-has-key($typography, 'weight') {
+          $weight: map-get($typography, 'weight');
+          @include sf-google-fonts($font, $weight);
+        } @else {
+          @include sf-google-fonts($font);
+        }
+      } @else {
+        @include sf-webfonts($font);
+      }
+    }
+
+    @each $bp-namespace, $bp in $breakpoints {
+      @if ($bp-namespace == 'mobile') {
+        @include inuit-font-size(nth($bp, 1), nth($bp, 2));
+        letter-spacing: nth($bp, 3);
+
+        @if length($bp) == 4 {
+          text-transform: nth($bp, 4);
+        }
+      }
+      @else {
+        @include mq($from: #{$bp-namespace}) {
+          @include inuit-font-size(nth($bp, 1), nth($bp, 2));
+          letter-spacing: nth($bp, 3);
+
+          @if length($bp) == 4 {
+            text-transform: nth($bp, 4);
+          }
+        }
+      }
+    }
+  }
+  @else {
+    @error '[#{$tag}] is not defined in $typographies';
+  }
+}

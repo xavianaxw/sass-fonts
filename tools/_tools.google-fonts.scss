@@ -1,0 +1,31 @@
+// Mixin for Google Fonts
+// ==========================================================================||
+// $fonts map defined in settings.fonts
+
+@mixin sf-google-fonts($family, $weight: 'regular') {
+  @if map-has-key($fonts, $family) {
+    font-family: map-get($fonts, $family);
+
+    @if $weight == 'thin' {
+      font-weight: 100;
+    } @else if $weight == 'extra-light' {
+      font-weight: 200;
+    } @else if $weight == 'light' {
+      font-weight: 300;
+    } @else if $weight == 'regular' {
+      font-weight: 400;
+    } @else if $weight == 'medium' {
+      font-weight: 500;
+    } @else if $weight == 'semi-bold' {
+      font-weight: 600;
+    } @else if $weight == 'bold' {
+      font-weight: 700;
+    } @else if $weight == 'extra-bold' {
+      font-weight: 800;
+    } @else if $weight == 'black' {
+      font-weight: 900;
+    }
+  } @else {
+    @error 'font-family for \'#{$family}\' is not defined/imported in settings.fonts';
+  }
+}
