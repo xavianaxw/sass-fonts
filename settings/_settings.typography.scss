@@ -1,0 +1,20 @@
+// font-size | line-height | letter-spacing | text-transform (optional)
+
+$sf-font-type: 'googlefonts'; // or webfonts
+
+$typographies: (
+  'h1': (
+    font: 'avenir-black',
+    breakpoints: (
+      mobile: (28px, 44px, 0.98px),
+      desktop: (36px, 56px, 1.26px)
+    ),
+  ),
+  'p': (
+    font: 'avenir-book',
+    breakpoints: (
+      mobile: (18px, 30px, 0.6px),
+      desktop: (20px, 32px, 0.7px),
+    ),
+  ),
+);

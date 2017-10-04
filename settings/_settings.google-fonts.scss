@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Overpass+Mono');
+
+$overpass-mono: 'Overpass Mono', monospace;
+
+// assign to $fonts map
+$fonts: (
+  'overpass-mono': $overpass-mono,
+);
