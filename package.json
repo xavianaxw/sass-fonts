@@ -1,0 +1,28 @@
+{
+  "name": "sass-fonts",
+  "version": "1.0.0",
+  "description": "Helpers for Google Fonts + Webfonts",
+  "main": "index.js",
+  "repository": "git@github.com:xavianaxw/sass-fonts.git",
+  "author": "Xavian Ang <xavianaxw@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "sass",
+    "fonts",
+    "google-fonts",
+    "webfonts"
+  ],
+  "scripts": {
+    "test": "npm run lint && mocha test/run.js",
+    "lint": "./node_modules/.bin/stylelint \"**/*.scss\" --syntax scss"
+  },
+  "devDependencies": {
+    "glob": "^7.1.2",
+    "mocha": "^4.0.0",
+    "node-sass": "^4.5.3",
+    "sass-true": "^3.0.1",
+    "stylelint": "^8.1.1",
+    "stylelint-scss": "^2.1.0",
+    "stylelint-suitcss": "^1.0.0"
+  }
+}
