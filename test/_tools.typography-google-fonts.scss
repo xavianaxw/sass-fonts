@@ -85,4 +85,31 @@ $typographies: (
     }
   }
 
+  @include test("it should output Overpass Mono (Default) with settings on all breakpoints + !important") {
+    @include assert() {
+      @include output {
+        .output {
+          @include sf-typography('h1', true);
+        }
+      }
+      @include expect {
+        .output {
+          font-family: "Overpass Mono", monospace !important;
+          font-weight: 400 !important;
+          font-size: 28px !important;
+          font-size: (28px / $inuit-global-font-size) * 1rem !important;
+          line-height: 44px !important;
+          letter-spacing: 0.98px !important;
+
+          @media (min-width: 61.25em) {
+            font-size: 36px !important;
+            font-size: (36px / $inuit-global-font-size) * 1rem !important;
+            line-height: 56px !important;
+            letter-spacing: 1.26px !important;
+          }
+        }
+      }
+    }
+  }
+
 }

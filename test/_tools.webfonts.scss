@@ -21,4 +21,21 @@
     }
   }
 
+  @include test("it should output AvenirLTStd-Black + !important") {
+    @include assert() {
+      @include output {
+        .output {
+          @include sf-webfonts('avenir-black', true);
+        }
+      }
+      @include expect {
+        .output {
+          font-family: "AvenirLTStd-Black" !important;
+          font-style: normal !important;
+          font-weight: normal !important;
+        }
+      }
+    }
+  }
+
 }

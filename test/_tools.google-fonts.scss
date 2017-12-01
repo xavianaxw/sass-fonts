@@ -173,4 +173,38 @@
     }
   }
 
+  // testing default with $important: true
+  @include test("it should output with weight: default - regular (400) and !important") {
+    @include assert() {
+      @include output {
+        .output {
+          @include sf-google-fonts('overpass-mono', 'regular', true);
+        }
+      }
+      @include expect {
+        .output {
+          font-family: "Overpass Mono", monospace !important;
+          font-weight: 400 !important;
+        }
+      }
+    }
+  }
+
+  // testing thin - 100 with $important: true
+  @include test("it should output with weight: light (300) and !important") {
+    @include assert() {
+      @include output {
+        .output {
+          @include sf-google-fonts('overpass-mono', 'light', true);
+        }
+      }
+      @include expect {
+        .output {
+          font-family: "Overpass Mono", monospace !important;
+          font-weight: 300 !important;
+        }
+      }
+    }
+  }
+
 }
