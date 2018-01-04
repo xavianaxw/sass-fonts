@@ -30,6 +30,13 @@ $sf-font-type: 'google-fonts' !default; // or 'webfonts'
         }
       } @else if $sf-font-type == 'webfonts' {
         @include sf-webfonts($font, $impt);
+      } @else if $sf-font-type == 'typekit' {
+        @if map-has-key($typography, 'weight') {
+          $weight: map-get($typography, 'weight');
+          @include sf-typekit($font, $weight, $impt);
+        } @else {
+          @include sf-typekit($font, 'regular', $impt);
+        }
       }
     }
 
