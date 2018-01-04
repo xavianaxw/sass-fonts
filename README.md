@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/xavianaxw/sass-fonts.svg?branch=master)](https://travis-ci.org/xavianaxw/sass-fonts) [![npm version](https://badge.fury.io/js/sass-fonts.svg)](https://badge.fury.io/js/sass-fonts)
+[ ![Codeship Status for xavianaxw/sass-fonts](https://app.codeship.com/projects/3f2ffc80-d3cf-0135-dd3e-0eadded0d45f/status?branch=master)](https://app.codeship.com/projects/262896) [![npm version](https://badge.fury.io/js/sass-fonts.svg)](https://badge.fury.io/js/sass-fonts)
 
 # What is sass-fonts ?
 
@@ -35,7 +35,12 @@ manage and update inuitcss as a dependency.
 // TOOLS
 @import "inuitcss/tools/tools.font-size"; // path depends on project setup
 @import "sass-mq/mq";                     // path depends on project setup
-@import 'tools/tools.google-fonts';       // or @import 'tools/tools.webfonts';
+
+// And one of the following
+// @import 'tools/tools.google-fonts';
+// @import 'tools/tools.webfonts';
+// @import 'tools/tools.typekit';
+
 @import 'tools/tools.typography';
 ```
 
@@ -56,7 +61,7 @@ $sf-font-type: 'webfonts';
 **Typekit `Since 1.0.4`**
 
 ```scss
-$sf-font-type: 'webfonts';
+$sf-font-type: 'typekit';
 ```
 
 **settings.fonts.scss**
