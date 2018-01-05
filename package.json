@@ -1,6 +1,6 @@
 {
   "name": "sass-fonts",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Helpers for Fonts - Google, Webfonts and Typekit!",
   "main": "index.js",
   "repository": "git@github.com:xavianaxw/sass-fonts.git",
@@ -10,7 +10,8 @@
     "sass",
     "fonts",
     "google-fonts",
-    "webfonts"
+    "webfonts",
+    "typekit"
   ],
   "scripts": {
     "test": "npm run lint && mocha test/run.js",
