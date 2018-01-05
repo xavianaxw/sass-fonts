@@ -2,7 +2,7 @@
 // ==========================================================================||
 // $fonts map defined in settings.fonts
 
-@mixin sf-typekit($family, $weight: 'regular', $important: false) {
+@mixin sf-typekit($family, $weight: 'regular', $style: 'normal', $important: false) {
   $impt: false;
 
   // Thanks inuitcss!
@@ -16,8 +16,14 @@
     @error "$important needs to be `true` or `false`."
   }
 
+  // Validate $style
+  @if ($style != 'normal' and $style != 'italic') {
+    @error "Invalid value for $style - accepted values: normal, italic"
+  }
+
   @if map-has-key($fonts, $family) {
     font-family: map-get($fonts, $family) $important;
+    font-style: $style $important;
 
     @if $weight == 'thin' {
       font-weight: 100 $important;

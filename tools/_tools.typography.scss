@@ -18,25 +18,20 @@ $sf-font-type: 'google-fonts' !default; // or 'webfonts'
     $typography: map-get($typographies, $tag);
     $breakpoints: map-get($typography, 'breakpoints');
 
-    @if map-has-key($typography, 'font') {
+    @if map-has-key($typography, 'font')  {
       $font: map-get($typography, 'font');
 
-      @if $sf-font-type == 'google-fonts' {
-        @if map-has-key($typography, 'weight') {
-          $weight: map-get($typography, 'weight');
-          @include sf-google-fonts($font, $weight, $impt);
-        } @else {
-          @include sf-google-fonts($font, 'regular', $impt);
+      @if $sf-font-type == 'google-fonts' or $sf-font-type == 'typekit' {
+        $weight: if(map-has-key($typography, 'weight'), map-get($typography, 'weight'), 'regular');
+        $style: if(map-has-key($typography, 'style'), map-get($typography, 'style'), 'normal');
+
+        @if $sf-font-type == 'google-fonts' {
+          @include sf-google-fonts($font, $weight, $style, $impt);
+        } @else if $sf-font-type == 'typekit' {
+          @include sf-typekit($font, $weight, $style, $impt);
         }
       } @else if $sf-font-type == 'webfonts' {
         @include sf-webfonts($font, $impt);
-      } @else if $sf-font-type == 'typekit' {
-        @if map-has-key($typography, 'weight') {
-          $weight: map-get($typography, 'weight');
-          @include sf-typekit($font, $weight, $impt);
-        } @else {
-          @include sf-typekit($font, 'regular', $impt);
-        }
       }
     }
 
