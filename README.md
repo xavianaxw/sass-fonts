@@ -44,7 +44,7 @@ manage and update inuitcss as a dependency.
 @import 'tools/tools.typography';
 ```
 
-`sass-fonts` uses `$sf-font-type` to define if your project will be using Google Fonts or Web Fonts.
+`sass-fonts` uses `$sf-font-type` to define if your project will be using Google Fonts, Web Fonts or Typekit.
 
 **Google Fonts**
 
@@ -70,6 +70,7 @@ $sf-font-type: 'typekit';
 $sf-font-type: 'google-fonts';  // or webfonts / typekit (1.0.4)
 
 // If using Google Fonts
+
 @import url('https://fonts.googleapis.com/css?family=Overpass+Mono');
 
 $overpass-mono: 'Overpass Mono', monospace;
@@ -92,6 +93,7 @@ $fonts: (
 );
 
 // If using Typekit
+
 @import url("https://use.typekit.net/[typekit_id].css");
 
 $museo-sans: 'museo-sans';
@@ -105,6 +107,38 @@ $fonts: (
 **settings.typography.scss**
 
 ```scss
+// If using Google Fonts or Typekit
+// $weight and $style are optional and can be included
+
+$typographies: (
+  'h1': (
+    font: 'overpass-mono',
+    weight: 'bold', // refer to Options for $weight
+    breakpoints: (
+      mobile: (28px, 44px, 0.98px),
+      desktop: (36px, 56px, 1.26px)
+    ),
+  ),
+  'p': (
+    font: 'overpass-mono',
+    breakpoints: (
+      mobile: (18px, 30px, 0.6px),
+      desktop: (20px, 32px, 0.7px),
+    ),
+  ),
+  'p-italic': (
+    font: 'overpass-mono',
+    style: 'italic', // refer to Options for $style
+    breakpoints: (
+      mobile: (18px, 30px, 0.6px),
+      desktop: (20px, 32px, 0.7px),
+    ),
+  )
+);
+
+// If using Webfonts
+// Does not support $weight and $style
+
 $typographies: (
   'h1': (
     font: 'avenir-black',
@@ -137,15 +171,21 @@ h2, h3, h4, h5, h6 {
 
 or if you prefer not to use `inuit-font-size` or define typographies for different breakpoints, you can manually include font-family using either one of the following mixins:
 
-**Google Fonts**
+**Google Fonts - `@include sf-google-fonts($font, $weight: 'regular', $style: 'normal', $important: false)`**
 
 ```scss
 h1 {
-  @include sf-google-fonts('overpass-mono'); // or @include sf-google-fonts('overpass-mono', 'bold');
+  @include sf-google-fonts('overpass-mono');
+
+  // Other Use Cases
+  // @include sf-google-fonts('overpass-mono', 'bold');
+  // @include sf-google-fonts('overpass-mono', 'bold', 'italic');
+  // @include sf-google-fonts('overpass-mono', 'bold', 'normal', true);
+  // @include sf-google-fonts('overpass-mono', 'bold', 'italic', true);
 }
 ```
 
-**Webfonts**
+**Webfonts - `@include sf-webfonts($font, $important: false)`**
 
 ```scss
 h1 {
@@ -153,15 +193,21 @@ h1 {
 }
 ```
 
-**Typekit**
+**Typekit - `@include sf-google-fonts($font, $weight: 'regular', $style: 'normal', $important: false)`**
 
 ```scss
 h1 {
-  @include sf-typekit('museo-sans'); // or @include sf-typekit('museo-sans', 'bold');
+  @include sf-typekit('museo-sans');
+
+  // Other Use Cases
+  // @include sf-typekit('museo-sans', 'bold');
+  // @include sf-typekit('museo-sans', 'bold', 'italic');
+  // @include sf-typekit('museo-sans', 'bold', 'normal', true);
+  // @include sf-typekit('museo-sans', 'bold', 'italic', true);
 }
 ```
 
-## Options for Google Font / Typekit - `$weight` includes
+## Options for `$weight` includes (Only for Google Fonts / Typekit)
 
 |             | Font Weight | Default  |
 | ----------- |:-----------:|:--------:|
@@ -174,6 +220,13 @@ h1 {
 | bold        | 700         |          |
 | extra-bold  | 800         |          |
 | black       | 900         |          |
+
+## Options for `$style` includes (Only for Google Fonts / Typekit)
+
+|             | Default  |
+| ----------- |:--------:|
+| normal      | !default |
+| italic      |          |
 
 ## Something not right?
 Create a [Pull Request](https://github.com/xavianaxw/sass-fonts/compare) or submit an [issue](https://github.com/xavianaxw/sass-fonts/issues/new) so I can fix them!
