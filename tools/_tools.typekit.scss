@@ -23,8 +23,15 @@
 
   @if map-has-key($fonts, $family) {
     font-family: map-get($fonts, $family) $important;
-    font-style: $style $important;
+    
+    // font-style
+    @if $style == 'normal' {
+      font-style: normal $important;
+    } @else if $style == 'italic' {
+      font-style: italic $important;
+    }
 
+    // font-weight
     @if $weight == 'thin' {
       font-weight: 100 $important;
     } @else if $weight == 'extra-light' {
