@@ -1,8 +1,9 @@
 // Mixin for Google Fonts
 // ==========================================================================||
 // $fonts map defined in settings.fonts
+// 1.0.9 - Remove font-style
 
-@mixin sf-google-fonts($family, $weight: 'regular', $style: 'normal', $important: false) {
+@mixin sf-google-fonts($family, $weight: 'regular', $important: false) {
   $impt: false;
 
   // Thanks inuitcss!
@@ -16,20 +17,8 @@
     @error "$important needs to be `true` or `false`."
   }
 
-  // Validate $style
-  @if ($style != 'normal' and $style != 'italic') {
-    @error "Invalid value for $style - accepted values: normal, italic"
-  }
-
   @if map-has-key($fonts, $family) {
     font-family: map-get($fonts, $family) $important;
-    
-    // font-style
-    @if $style == 'normal' {
-      font-style: normal $important;
-    } @else if $style == 'italic' {
-      font-style: italic $important;
-    }
 
     // font-weight
     @if $weight == 'thin' {

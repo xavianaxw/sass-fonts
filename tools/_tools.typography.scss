@@ -23,12 +23,11 @@ $sf-font-type: 'google-fonts' !default; // or 'webfonts'
 
       @if $sf-font-type == 'google-fonts' or $sf-font-type == 'typekit' {
         $weight: if(map-has-key($typography, 'weight'), map-get($typography, 'weight'), 'regular');
-        $style: if(map-has-key($typography, 'style'), map-get($typography, 'style'), 'normal');
 
         @if $sf-font-type == 'google-fonts' {
-          @include sf-google-fonts($font, $weight, $style, $impt);
+          @include sf-google-fonts($font, $weight, $impt);
         } @else if $sf-font-type == 'typekit' {
-          @include sf-typekit($font, $weight, $style, $impt);
+          @include sf-typekit($font, $weight, $impt);
         }
       } @else if $sf-font-type == 'webfonts' {
         @include sf-webfonts($font, $impt);
