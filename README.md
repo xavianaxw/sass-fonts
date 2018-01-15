@@ -126,14 +126,6 @@ $typographies: (
       desktop: (20px, 32px, 0.7px),
     ),
   ),
-  'p-italic': (
-    font: 'overpass-mono',
-    style: 'italic', // refer to Options for $style
-    breakpoints: (
-      mobile: (18px, 30px, 0.6px),
-      desktop: (20px, 32px, 0.7px),
-    ),
-  )
 );
 
 // If using Webfonts
@@ -167,11 +159,14 @@ h1 {
 h2, h3, h4, h5, h6 {
   @include sf-typography('other-heading');
 }
+
+// Other Use Cases
+// @include sf-typography('h1', true);
 ```
 
 or if you prefer not to use `inuit-font-size` or define typographies for different breakpoints, you can manually include font-family using either one of the following mixins:
 
-**Google Fonts - `@include sf-google-fonts($font, $weight: 'regular', $style: 'normal', $important: false)`**
+**Google Fonts : `@include sf-google-fonts($font, $weight: 'regular', $important: false)`**
 
 ```scss
 h1 {
@@ -179,21 +174,22 @@ h1 {
 
   // Other Use Cases
   // @include sf-google-fonts('overpass-mono', 'bold');
-  // @include sf-google-fonts('overpass-mono', 'bold', 'italic');
-  // @include sf-google-fonts('overpass-mono', 'bold', 'normal', true);
-  // @include sf-google-fonts('overpass-mono', 'bold', 'italic', true);
+  // @include sf-google-fonts('overpass-mono', 'bold', true);
 }
 ```
 
-**Webfonts - `@include sf-webfonts($font, $important: false)`**
+**Webfonts : `@include sf-webfonts($font, $important: false)`**
 
 ```scss
 h1 {
   @include sf-webfonts('avenir-black');
+
+  // Other Use Cases
+  // @include sf-webfonts('avenir-black', true);
 }
 ```
 
-**Typekit - `@include sf-google-fonts($font, $weight: 'regular', $style: 'normal', $important: false)`**
+**Typekit : `@include sf-typekit($font, $weight: 'regular', $important: false)`**
 
 ```scss
 h1 {
@@ -201,9 +197,7 @@ h1 {
 
   // Other Use Cases
   // @include sf-typekit('museo-sans', 'bold');
-  // @include sf-typekit('museo-sans', 'bold', 'italic');
-  // @include sf-typekit('museo-sans', 'bold', 'normal', true);
-  // @include sf-typekit('museo-sans', 'bold', 'italic', true);
+  // @include sf-typekit('museo-sans', 'bold', true);
 }
 ```
 
@@ -221,12 +215,7 @@ h1 {
 | extra-bold  | 800         |          |
 | black       | 900         |          |
 
-## Options for `$style` includes (Only for Google Fonts / Typekit)
-
-|             | Default  |
-| ----------- |:--------:|
-| normal      | !default |
-| italic      |          |
-
 ## Something not right?
 Create a [Pull Request](https://github.com/xavianaxw/sass-fonts/compare) or submit an [issue](https://github.com/xavianaxw/sass-fonts/issues/new) so I can fix them!
+
+View our [Changelog](https://github.com/xavianaxw/sass-fonts/blob/master/CHANGELOG.md) for recent changes!
