@@ -58,6 +58,33 @@ $typographies: (
     }
   }
 
+  @include test("it should output Overpass Mono (Light) with settings on all breakpoints") {
+    @include assert() {
+      @include output {
+        .output {
+          @include sf-typography('h1-light');
+        }
+      }
+      @include expect {
+        .output {
+          font-family: "Overpass Mono", monospace;
+          font-weight: 300;
+          font-size: 18px;
+          font-size: (18px / $inuit-global-font-size) * 1rem;
+          line-height: 30px;
+          letter-spacing: 0.6px;
+
+          @media (min-width: 61.25em) {
+            font-size: 20px;
+            font-size: (20px / $inuit-global-font-size) * 1rem;
+            line-height: 32px;
+            letter-spacing: 0.7px;
+          }
+        }
+      }
+    }
+  }
+
   @include test("it should output Overpass Mono (Default) with settings on all breakpoints + !important") {
     @include assert() {
       @include output {
@@ -84,4 +111,32 @@ $typographies: (
       }
     }
   }
+
+  @include test("it should output Overpass Mono (Light) with settings on all breakpoints + !important") {
+    @include assert() {
+      @include output {
+        .output {
+          @include sf-typography('h1-light', true);
+        }
+      }
+      @include expect {
+        .output {
+          font-family: "Overpass Mono", monospace !important;
+          font-weight: 300 !important;
+          font-size: 18px !important;
+          font-size: (18px / $inuit-global-font-size) * 1rem !important;
+          line-height: 30px !important;
+          letter-spacing: 0.6px !important;
+
+          @media (min-width: 61.25em) {
+            font-size: 20px !important;
+            font-size: (20px / $inuit-global-font-size) * 1rem !important;
+            line-height: 32px !important;
+            letter-spacing: 0.7px !important;
+          }
+        }
+      }
+    }
+  }
+
 }
