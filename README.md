@@ -109,13 +109,14 @@ $fonts: (
 ```scss
 // If using Google Fonts or Typekit
 // $weight and $style are optional and can be excluded
+// params for each breakpoint, e.g. mobile: (font-size, line-height, letter-spacing)
 
 $typographies: (
   'h1': (
     font: 'overpass-mono',
     weight: 'bold', // refer to Options for $weight
     breakpoints: (
-      mobile: (28px, 44px, 0.98px), // (font-size, line-height, letter-spacing)
+      mobile: (28px, 44px, 0.98px),
       desktop: (36px, 56px, 1.26px)
     ),
   ),
