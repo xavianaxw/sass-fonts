@@ -2,11 +2,11 @@
 
 # What is sass-fonts ?
 
-Helper class to define the typography you use in your project
+Helper SCSS class to define the typography you use in your project
 
 ## Installation
 
-You can use inuitcss in your project by installing it using a package manager
+You can use [inuitcss](https://github.com/inuitcss/inuitcss) in your project by installing it using a package manager
 (recommended):
 
 **npm:**
@@ -21,9 +21,9 @@ $ npm install sass-fonts --save
 $ yarn add sass-fonts
 ```
 
-You can download inuitcss and save it into your project’s `css/` directory. This
+You can download [inuitcss](https://github.com/inuitcss/inuitcss) and save it into your project’s `css/` directory. This
 method is not recommended because you lose the ability to easily and quickly
-manage and update inuitcss as a dependency.
+manage and update [inuitcss](https://github.com/inuitcss/inuitcss) as a dependency.
 
 ## Getting Started
 
@@ -108,14 +108,14 @@ $fonts: (
 
 ```scss
 // If using Google Fonts or Typekit
-// $weight and $style are optional and can be included
+// $weight and $style are optional and can be excluded
 
 $typographies: (
   'h1': (
     font: 'overpass-mono',
     weight: 'bold', // refer to Options for $weight
     breakpoints: (
-      mobile: (28px, 44px, 0.98px),
+      mobile: (28px, 44px, 0.98px), // (font-size, line-height, letter-spacing)
       desktop: (36px, 56px, 1.26px)
     ),
   ),
@@ -208,7 +208,7 @@ h1 {
 | thin        | 100         |          |
 | extra-light | 200         |          |
 | light       | 300         |          |
-| regular     | 400         | !default | 
+| regular     | 400         | !default |
 | medium      | 500         |          |
 | semi-bold   | 600         |          |
 | bold        | 700         |          |
