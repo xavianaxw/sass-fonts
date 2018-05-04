@@ -1,4 +1,9 @@
-$sf-font-type: 'google-fonts' !default; // or 'webfonts'
+// ==========================================================================||
+//  Mixin for setting font from $fonts map
+// ==========================================================================||
+//  Changelog
+//  2.0.0 - created
+// ==========================================================================||
 
 @mixin sf-typography($tag, $important: false) {
   $impt: false;
@@ -20,23 +25,14 @@ $sf-font-type: 'google-fonts' !default; // or 'webfonts'
 
     @if map-has-key($typography, 'font')  {
       $font: map-get($typography, 'font');
+      $weight: if(map-has-key($typography, 'weight'), map-get($typography, 'weight'), 'regular');
 
-      @if $sf-font-type == 'google-fonts' or $sf-font-type == 'typekit' {
-        $weight: if(map-has-key($typography, 'weight'), map-get($typography, 'weight'), 'regular');
-
-        @if $sf-font-type == 'google-fonts' {
-          @include sf-google-fonts($font, $weight, $impt);
-        } @else if $sf-font-type == 'typekit' {
-          @include sf-typekit($font, $weight, $impt);
-        }
-      } @else if $sf-font-type == 'webfonts' {
-        @include sf-webfonts($font, $impt);
-      }
+      @include sf-family($font, $weight, $impt);
     }
 
     @each $bp-namespace, $bp in $breakpoints {
       @if ($bp-namespace == 'mobile') {
-        @include inuit-font-size(nth($bp, 1), nth($bp, 2), $impt);
+        @include inuit-font-size(nth($bp, 1), nth($bp, 2), 0, $impt);
         letter-spacing: nth($bp, 3) $important;
 
         @if length($bp) == 4 {
@@ -45,7 +41,7 @@ $sf-font-type: 'google-fonts' !default; // or 'webfonts'
       }
       @else {
         @include mq($from: #{$bp-namespace}) {
-          @include inuit-font-size(nth($bp, 1), nth($bp, 2), $impt);
+          @include inuit-font-size(nth($bp, 1), nth($bp, 2), 0, $impt);
           letter-spacing: nth($bp, 3) $important;
 
           @if length($bp) == 4 {
