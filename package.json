@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "glob": "^7.1.2",
+    "hoek": "^5.0.3",
     "mocha": "^4.0.0",
     "node-sass": "^4.5.3",
     "sass-true": "^3.0.1",
