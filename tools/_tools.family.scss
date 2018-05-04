@@ -1,0 +1,54 @@
+// ==========================================================================||
+//  Mixin for setting font-family and font-weight
+// ==========================================================================||
+//  Changelog
+//  2.0.0 - created
+// ==========================================================================||
+
+@mixin sf-family($family, $weight: 'regular', $important: false) {
+  $impt: false;
+
+  // Thanks inuitcss!
+  @if ($important == true) {
+    $important: !important;
+    $impt: true;
+  } @elseif ($important == false) {
+    $important: null;
+    $impt: false;
+  } @else {
+    @error "$important needs to be `true` or `false`."
+  }
+
+  @if map-has-key($fonts, $family) {
+    font-family: map-get($fonts, $family) $important;
+
+    @if type-of($weight) == 'number' {
+      font-weight: $weight $important;
+    } @else {
+      // font-weight
+      @if $weight == 'thin' {
+        font-weight: 100 $important;
+      } @else if $weight == 'extra-light' {
+        font-weight: 200 $important;
+      } @else if $weight == 'light' {
+        font-weight: 300 $important;
+      } @else if $weight == 'regular' {
+        font-weight: 400 $important;
+      } @else if $weight == 'medium' {
+        font-weight: 500 $important;
+      } @else if $weight == 'semi-bold' {
+        font-weight: 600 $important;
+      } @else if $weight == 'bold' {
+        font-weight: 700 $important;
+      } @else if $weight == 'extra-bold' {
+        font-weight: 800 $important;
+      } @else if $weight == 'black' {
+        font-weight: 900 $important;
+      } @else {
+        @error 'Invalid $weight value passed';
+      }
+    }
+  } @else {
+    @error 'font-family for \'#{$family}\' is not defined/imported in settings.fonts';
+  }
+}
