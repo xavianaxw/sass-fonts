@@ -122,6 +122,7 @@ $typographies: (
   ),
   'p': (
     font: 'overpass-mono',
+    weight: 'regular', // also supports 400 since v1.1.5
     breakpoints: (
       mobile: (18px, 30px, 0.6px),
       desktop: (20px, 32px, 0.7px),
@@ -203,6 +204,8 @@ h1 {
 ```
 
 ## Options for `$weight` includes (Only for Google Fonts / Typekit)
+
+In `v1.1.5` you can now use integers for your font-weight!
 
 |             | Font Weight | Default  |
 | ----------- |:-----------:|:--------:|
