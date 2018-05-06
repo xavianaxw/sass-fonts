@@ -207,4 +207,38 @@
     }
   }
 
+  // testing font-weight in integer light - 300 with $important: true
+  @include test("it should output with weight: light (300) declared by integer") {
+    @include assert() {
+      @include output {
+        .output {
+          @include sf-google-fonts('overpass-mono', 300);
+        }
+      }
+      @include expect {
+        .output {
+          font-family: "Overpass Mono", monospace;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
+  // testing font-weight in integer light - 300
+  @include test("it should output with weight: light (300) declared by integer and !important") {
+    @include assert() {
+      @include output {
+        .output {
+          @include sf-google-fonts('overpass-mono', 300, true);
+        }
+      }
+      @include expect {
+        .output {
+          font-family: "Overpass Mono", monospace !important;
+          font-weight: 300 !important;
+        }
+      }
+    }
+  }
+
 }
