@@ -32,7 +32,7 @@ $typographies: (
   ),
 );
 
-@include test-module("[mixin] sf-typography for google fonts") {
+@include test-module("[mixin] Testing @include sf-typography") {
   @include test("it should output Overpass Mono (Default) with settings on all breakpoints") {
     @include assert() {
       @include output {
