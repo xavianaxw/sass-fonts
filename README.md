@@ -38,16 +38,15 @@ manage and update [inuitcss](https://github.com/inuitcss/inuitcss) as a dependen
 @import 'sass-fonts/tools/tools.typography';
 ```
 
-Example for [settings.fonts](https://github.com/xavianaxw/sass-fonts/settings/_settings.fonts.example.scss) and [settings.typoraphy](https://github.com/xavianaxw/sass-fonts/settings/_settings.typography.example.scss) here.
+Example for [settings.fonts](https://github.com/xavianaxw/sass-fonts/settings/_settings.fonts.example.scss) and [settings.typography](https://github.com/xavianaxw/sass-fonts/settings/_settings.typography.example.scss) here.
 
 `settings.typography.scss`
 
-<dl>
-  <dt>Notes</dt>
-  <dd>- $weight and $style are optional and can be excluded</dd>
-  <dd>- params for each breakpoint, e.g. mobile: (font-size, line-height, letter-spacing)</dd>
-  <dd>- $weight supports both font-weight integer (e.g. 300 / 700) or full string (e.g. bold / semi-bold)</dd>
-</dl>
+**Notes**
+
+- $weight is optional and can be excluded
+- $weight supports both font-weight integer (e.g. 300 / 700) or full string (e.g. bold / semi-bold)
+- params for each breakpoint, e.g. mobile: (font-size, line-height, letter-spacing)
 
 **If using Google Fonts**
 
@@ -192,6 +191,8 @@ h1 {
 ```
 
 ## Options for `$weight`
+
+In `v2.0.0` you can now use integers for your `font-weight`!
 
 |             | Font Weight | Default  |
 | ----------- |:-----------:|:--------:|
