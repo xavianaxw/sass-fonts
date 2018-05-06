@@ -192,6 +192,8 @@ h1 {
 
 ## Options for `$weight`
 
+In `v2.0.0` you can now use integers for your `font-weight`!
+
 |             | Font Weight | Default  |
 | ----------- |:-----------:|:--------:|
 | thin        | 100         |          |
