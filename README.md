@@ -29,48 +29,29 @@ manage and update [inuitcss](https://github.com/inuitcss/inuitcss) as a dependen
 
 ```scss
 // SETTINGS
-@import 'settings/settings.fonts';        // google-fonts or webfonts
 @import 'settings/settings.typography';
 
 // TOOLS
-@import "inuitcss/tools/tools.font-size"; // path depends on project setup
-@import "sass-mq/mq";                     // path depends on project setup
-
-// And one of the following
-// @import 'tools/tools.google-fonts';
-// @import 'tools/tools.webfonts';
-// @import 'tools/tools.typekit';
-
-@import 'tools/tools.typography';
+@import 'inuitcss/tools/tools.font-size'; // path depends on project setup
+@import 'sass-mq/mq';                     // path depends on project setup
+@import 'sass-fonts/tools/tools.family';
+@import 'sass-fonts/tools/tools.typography';
 ```
 
-`sass-fonts` uses `$sf-font-type` to define if your project will be using Google Fonts, Web Fonts or Typekit.
+Example for [settings.fonts](https://github.com/xavianaxw/sass-fonts/settings/_settings.fonts.example.scss) and [settings.typoraphy](https://github.com/xavianaxw/sass-fonts/settings/_settings.typography.example.scss) here.
 
-**Google Fonts**
+`settings.typography.scss`
 
-```scss
-$sf-font-type: 'google-fonts';
-```
+<dl>
+  <dt>Notes</dt>
+  <dd>- $weight and $style are optional and can be excluded</dd>
+  <dd>- params for each breakpoint, e.g. mobile: (font-size, line-height, letter-spacing)</dd>
+  <dd>- $weight supports both font-weight integer (e.g. 300 / 700) or full string (e.g. bold / semi-bold)</dd>
+</dl>
 
-**Web Fonts**
-
-```scss
-$sf-font-type: 'webfonts';
-```
-
-**Typekit `Since 1.0.4`**
+**If using Google Fonts**
 
 ```scss
-$sf-font-type: 'typekit';
-```
-
-**settings.fonts.scss**
-
-```scss
-$sf-font-type: 'google-fonts';  // or webfonts / typekit (1.0.4)
-
-// If using Google Fonts
-
 @import url('https://fonts.googleapis.com/css?family=Overpass+Mono');
 
 $overpass-mono: 'Overpass Mono', monospace;
@@ -80,41 +61,10 @@ $fonts: (
   'overpass-mono': $overpass-mono,
 );
 
-// If using Webfonts
-// insert script provided for Webfonts
-
-$avenir-black: 'AvenirLTStd-Black', sans-serif;
-$avenir-book: 'AvenirLTStd-Book', sans-serif;
-
-// assign to $fonts map
-$fonts: (
-  'avenir-black': $avenir-black,
-  'avenir-book': $avenir-book,
-);
-
-// If using Typekit
-
-@import url("https://use.typekit.net/[typekit_id].css");
-
-$museo-sans: 'museo-sans';
-
-// assign to $fonts map
-$fonts: (
-  'museo-sans': $museo-sans,
-);
-```
-
-**settings.typography.scss**
-
-```scss
-// If using Google Fonts or Typekit
-// $weight and $style are optional and can be excluded
-// params for each breakpoint, e.g. mobile: (font-size, line-height, letter-spacing)
-
 $typographies: (
   'h1': (
     font: 'overpass-mono',
-    weight: 'bold', // refer to Options for $weight
+    weight: 'bold', // or 700
     breakpoints: (
       mobile: (28px, 44px, 0.98px),
       desktop: (36px, 56px, 1.26px)
@@ -128,20 +78,78 @@ $typographies: (
     ),
   ),
 );
+```
 
-// If using Webfonts
-// Does not support $weight and $style
+**If using Webfonts (FontSquirrel etc)**
+
+```scss
+@font-face {
+  font-family: 'muller';
+  font-style: normal;
+  font-weight: 700;
+  src:
+    url('../fonts/mullerblack-webfont.woff2') format('woff2'),
+    url('../fonts/mullerblack-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'muller';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url('../fonts/mullerregular-webfont.woff2') format('woff2'),
+    url('../fonts/mullerregular-webfont.woff') format('woff');
+}
+
+$muller: 'muller', sans-serif;
+
+// assign to $fonts map
+$fonts: (
+  'muller': $muller,
+);
 
 $typographies: (
   'h1': (
-    font: 'avenir-black',
+    font: 'muller',
+    weight: 'bold', // or 700
     breakpoints: (
       mobile: (28px, 44px, 0.98px),
       desktop: (36px, 56px, 1.26px)
     ),
   ),
   'p': (
-    font: 'avenir-book',
+    font: 'muller',
+    breakpoints: (
+      mobile: (18px, 30px, 0.6px),
+      desktop: (20px, 32px, 0.7px),
+    ),
+  ),
+);
+```
+
+**If using Typekit**
+
+```scss
+@import url('https://use.typekit.net/[typekit_id].css');
+
+$museo-sans: 'museo-sans';
+
+// assign to $fonts map
+$fonts: (
+  'museo-sans': $museo-sans,
+);
+
+$typographies: (
+  'h1': (
+    font: 'museo-sans',
+    weight: 'bold', // or 700
+    breakpoints: (
+      mobile: (28px, 44px, 0.98px),
+      desktop: (36px, 56px, 1.26px)
+    ),
+  ),
+  'p': (
+    font: 'museo-sans',
     breakpoints: (
       mobile: (18px, 30px, 0.6px),
       desktop: (20px, 32px, 0.7px),
@@ -152,6 +160,10 @@ $typographies: (
 
 ## How to use?
 
+There are a few ways to render your CSS using `sass-fonts`. Currently (as of `v2.0.0`), `sass-fonts` supports `@include sf-typography` and `@include sf-family`.
+
+`@include sf-typography`
+
 ```scss
 h1 {
   @include sf-typography('h1');
@@ -161,48 +173,25 @@ h2, h3, h4, h5, h6 {
   @include sf-typography('other-heading');
 }
 
-// Other Use Cases
+// Supports boolean flag to enforce !important flag on CSS declarations
 // @include sf-typography('h1', true);
 ```
 
-or if you prefer not to use `inuit-font-size` or define typographies for different breakpoints, you can manually include font-family using either one of the following mixins:
+or if you opt not to set up a `$typographies` and prefer to set your typography manually, just `@include sf-family` and define your `font-size` (you can also use `@include inuit-font-size` from [inuitcss](https://github.com/inuitcss/inuitcss))
 
-**Google Fonts : `@include sf-google-fonts($font, $weight: 'regular', $important: false)`**
-
-```scss
-h1 {
-  @include sf-google-fonts('overpass-mono');
-
-  // Other Use Cases
-  // @include sf-google-fonts('overpass-mono', 'bold');
-  // @include sf-google-fonts('overpass-mono', 'bold', true);
-}
-```
-
-**Webfonts : `@include sf-webfonts($font, $important: false)`**
+`@include sf-family($font-family, $weight, $important: false)`
 
 ```scss
 h1 {
-  @include sf-webfonts('avenir-black');
+  @include sf-family('overpass-mono');
 
   // Other Use Cases
-  // @include sf-webfonts('avenir-black', true);
+  // @include sf-family('overpass-mono', 'bold');
+  // @include sf-family('overpass-mono', 'bold', true);
 }
 ```
 
-**Typekit : `@include sf-typekit($font, $weight: 'regular', $important: false)`**
-
-```scss
-h1 {
-  @include sf-typekit('museo-sans');
-
-  // Other Use Cases
-  // @include sf-typekit('museo-sans', 'bold');
-  // @include sf-typekit('museo-sans', 'bold', true);
-}
-```
-
-## Options for `$weight` includes (Only for Google Fonts / Typekit)
+## Options for `$weight`
 
 |             | Font Weight | Default  |
 | ----------- |:-----------:|:--------:|
@@ -219,4 +208,4 @@ h1 {
 ## Something not right?
 Create a [Pull Request](https://github.com/xavianaxw/sass-fonts/compare) or submit an [issue](https://github.com/xavianaxw/sass-fonts/issues/new) so I can fix them!
 
-View our [Changelog](https://github.com/xavianaxw/sass-fonts/blob/master/CHANGELOG.md) for recent changes!
+View our [Changelog](https://github.com/xavianaxw/sass-fonts/CHANGELOG.md) for recent changes!
