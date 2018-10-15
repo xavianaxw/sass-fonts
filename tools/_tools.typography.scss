@@ -34,19 +34,11 @@
       @if ($bp-namespace == "mobile") {
         @include inuit-font-size(nth($bp, 1), nth($bp, 2), 0, $impt);
         letter-spacing: nth($bp, 3) $important;
-
-        @if length($bp) == 4 {
-          text-transform: nth($bp, 4) $important;
-        }
       }
       @else {
         @include mq($from: #{$bp-namespace}) {
           @include inuit-font-size(nth($bp, 1), nth($bp, 2), 0, $impt);
           letter-spacing: nth($bp, 3) $important;
-
-          @if length($bp) == 4 {
-            text-transform: nth($bp, 4) $important;
-          }
         }
       }
     }
