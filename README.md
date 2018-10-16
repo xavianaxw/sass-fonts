@@ -208,8 +208,7 @@ h2, h3, h4, h5, h6 {
   @include sf-typography('other-heading');
 }
 
-// Supports boolean flag to enforce !important flag on CSS declarations
-// @include sf-typography('h1', true);
+// @include sf-typography('h1', true); // forces !important
 ```
 
 or if you opt not to set up a `$typographies` and prefer to set your typography manually, just `@include sf-family` and `@include sf-font-size` (released in `2.0.2`) which utilizes [inuitcss](https://github.com/inuitcss/inuitcss)'s `@include inuit-font-size`
@@ -222,7 +221,7 @@ h1 {
 
   // Other Use Cases
   // @include sf-family('overpass-mono', 'bold');
-  // @include sf-family('overpass-mono', 'bold', true);
+  // @include sf-family('overpass-mono', 'bold', true); // forces !important
 }
 ```
 
