@@ -228,7 +228,7 @@ h1 {
 
 [sf-font-size($font-size, $line-height, $letter-spacing, $important: false)](tools/_tools.font-size.scss) `2.0.2`
 
-> Syntax sugar for calling `@include inuit-font-size` but with additional 3rd parameter to set our `letter-spacing`.
+Syntax sugar for calling `@include inuit-font-size` but with additional 3rd parameter to set our `letter-spacing`.
 
 ```scss
 @include sf-font-size(16px, 24px, 0.5px);
