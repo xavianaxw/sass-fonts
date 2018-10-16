@@ -1,0 +1,26 @@
+// ==========================================================================||
+//  Mixin Sugar for setting @include inuit-font-size 
+// ==========================================================================||
+//  Changelog
+//  2.0.2 - created
+// ==========================================================================||
+
+@mixin sf-font-size($font-size, $line-height, $letter-spacing, $important: false) {
+  $impt: false;
+
+  // Thanks inuitcss!
+  @if ($important == true) {
+    $important: !important;
+    $impt: true;
+  }
+  @elseif ($important == false) {
+    $important: null;
+    $impt: false;
+  } @else {
+    @error "$important needs to be `true` or `false`.";
+  }
+
+  @include inuit-font-size($font-size, $line-height, 0, $impt);
+
+  letter-spacing: $letter-spacing $important;
+}

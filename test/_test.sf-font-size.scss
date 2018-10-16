@@ -1,0 +1,61 @@
+// ==========================================================================||
+//	Tests @include sf-family for google fonts
+// ==========================================================================||
+
+@import "true";
+@import "../node_modules/inuitcss/tools/tools.font-size";
+@import "../tools/tools.family";
+@import "../tools/tools.font-size";
+
+// $inuit necessities
+$inuit-global-font-size: 16px;
+
+$overpass-mono: "Overpass Mono", monospace;
+
+$fonts: (
+  "overpass-mono": $overpass-mono,
+);
+
+@include test-module("[mixin] Testing @include sf-font-size") {
+  @include test("it should output with typography setting set") {
+    @include assert() {
+      @include output {
+        .output {
+          @include sf-family("overpass-mono");
+          @include sf-font-size(16px, 24px, 0.5px);
+        }
+      }
+      @include expect {
+        .output {
+          font-family: "Overpass Mono", monospace;
+          font-weight: 400;
+          font-size: 16px;
+          font-size: 1rem;
+          line-height: 24px;
+          letter-spacing: 0.5px;
+        }
+      }
+    }
+  }
+
+  @include test("it should output with typography setting set with !important") {
+    @include assert() {
+      @include output {
+        .output {
+          @include sf-family("overpass-mono");
+          @include sf-font-size(16px, 24px, 0.5px, true);
+        }
+      }
+      @include expect {
+        .output {
+          font-family: "Overpass Mono", monospace;
+          font-weight: 400;
+          font-size: 16px !important;
+          font-size: 1rem !important;
+          line-height: 24px !important;
+          letter-spacing: 0.5px !important;
+        }
+      }
+    }
+  }
+}

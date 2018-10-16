@@ -16,42 +16,34 @@
     $important: null;
     $impt: false;
   } @else {
-    @error "$important needs to be `true` or `false`."
+    @error "$important needs to be 'true' or 'false'."
   }
 
   @if map-has-key($typographies, $tag) {
     $typography: map-get($typographies, $tag);
-    $breakpoints: map-get($typography, 'breakpoints');
+    $breakpoints: map-get($typography, "breakpoints");
 
-    @if map-has-key($typography, 'font')  {
-      $font: map-get($typography, 'font');
-      $weight: if(map-has-key($typography, 'weight'), map-get($typography, 'weight'), 'regular');
+    @if map-has-key($typography, "font")  {
+      $font: map-get($typography, "font");
+      $weight: if(map-has-key($typography, "weight"), map-get($typography, "weight"), "regular");
 
       @include sf-family($font, $weight, $impt);
     }
 
     @each $bp-namespace, $bp in $breakpoints {
-      @if ($bp-namespace == 'mobile') {
+      @if ($bp-namespace == "mobile") {
         @include inuit-font-size(nth($bp, 1), nth($bp, 2), 0, $impt);
         letter-spacing: nth($bp, 3) $important;
-
-        @if length($bp) == 4 {
-          text-transform: nth($bp, 4) $important;
-        }
       }
       @else {
         @include mq($from: #{$bp-namespace}) {
           @include inuit-font-size(nth($bp, 1), nth($bp, 2), 0, $impt);
           letter-spacing: nth($bp, 3) $important;
-
-          @if length($bp) == 4 {
-            text-transform: nth($bp, 4) $important;
-          }
         }
       }
     }
   }
   @else {
-    @error '[#{$tag}] is not defined in $typographies';
+    @error "[#{$tag}] is not defined in $typographies";
   }
 }

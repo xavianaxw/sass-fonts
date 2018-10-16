@@ -157,11 +157,47 @@ $typographies: (
 );
 ```
 
+**If using both Typekit and Google Fonts? We got you.**
+
+```scss
+@import url('https://use.typekit.net/[typekit_id].css');
+@import url('https://fonts.googleapis.com/css?family=Overpass+Mono');
+
+$museo-sans: 'museo-sans';
+$overpass-mono: 'Overpass Mono', monospace;
+
+// assign to $fonts map
+$fonts: (
+  'museo-sans': $museo-sans,
+  'overpass-mono': $overpass-mono,
+);
+
+$typographies: (
+  'h1': (
+    font: 'museo-sans',
+    weight: 'bold',
+    breakpoints: (
+      mobile: (28px, 44px, 0.98px),
+      desktop: (36px, 56px, 1.26px)
+    ),
+  ),
+  'p': (
+    font: 'overpass-mono',
+    breakpoints: (
+      mobile: (18px, 30px, 0.6px),
+      desktop: (20px, 32px, 0.7px),
+    ),
+  ),
+);
+```
+
+Easy peasy.
+
 ## How to use?
 
-There are a few ways to render your CSS using `sass-fonts`. Currently (as of `v2.0.0`), `sass-fonts` supports `@include sf-typography` and `@include sf-family`.
+There are a few ways to render your CSS using `sass-fonts`'s built in mixins.
 
-`@include sf-typography`
+[sf-typography($tag, $important: false)](tools/_tools.typography.scss) `2.0.0`
 
 ```scss
 h1 {
@@ -172,13 +208,12 @@ h2, h3, h4, h5, h6 {
   @include sf-typography('other-heading');
 }
 
-// Supports boolean flag to enforce !important flag on CSS declarations
-// @include sf-typography('h1', true);
+// @include sf-typography('h1', true); // forces !important
 ```
 
-or if you opt not to set up a `$typographies` and prefer to set your typography manually, just `@include sf-family` and define your `font-size` (you can also use `@include inuit-font-size` from [inuitcss](https://github.com/inuitcss/inuitcss))
+or if you opt not to set up a `$typographies` and prefer to set your typography manually, just `@include sf-family` and `@include sf-font-size` (released in `2.0.2`) which utilizes [inuitcss](https://github.com/inuitcss/inuitcss)'s `@include inuit-font-size`
 
-`@include sf-family($font-family, $weight, $important: false)`
+[sf-family($family, $weight: "regular", $important: false)](tools/_tools.family.scss) `2.0.0`
 
 ```scss
 h1 {
@@ -186,8 +221,17 @@ h1 {
 
   // Other Use Cases
   // @include sf-family('overpass-mono', 'bold');
-  // @include sf-family('overpass-mono', 'bold', true);
+  // @include sf-family('overpass-mono', 'bold', true); // forces !important
 }
+```
+
+[sf-font-size($font-size, $line-height, $letter-spacing, $important: false)](tools/_tools.font-size.scss) `2.0.2`
+
+Syntax sugar for calling `@include inuit-font-size` but with additional 3rd parameter to set our `letter-spacing`.
+
+```scss
+@include sf-font-size(16px, 24px, 0.5px);
+@include sf-font-size(16px, 24px, 0.5px, true); // forces !important
 ```
 
 ## Options for `$weight`

@@ -8,23 +8,23 @@
 // $inuit necessities
 $inuit-global-font-size: 16px;
 
-$overpass-mono: 'Overpass Mono', monospace;
+$overpass-mono: "Overpass Mono", monospace;
 
 $fonts: (
-  'overpass-mono': $overpass-mono,
+  "overpass-mono": $overpass-mono,
 );
 
 $typographies: (
-  'h1': (
-    font: 'overpass-mono',
+  "h1": (
+    font: "overpass-mono",
     breakpoints: (
       mobile: (28px, 44px, 0.98px),
       desktop: (36px, 56px, 1.26px)
     ),
   ),
-  'h1-light': (
-    font: 'overpass-mono',
-    weight: 'light',
+  "h1-light": (
+    font: "overpass-mono",
+    weight: "light",
     breakpoints: (
       mobile: (18px, 30px, 0.6px),
       desktop: (20px, 32px, 0.7px),
@@ -37,7 +37,7 @@ $typographies: (
     @include assert() {
       @include output {
         .output {
-          @include sf-typography('h1');
+          @include sf-typography("h1");
         }
       }
       @include expect {
@@ -64,7 +64,7 @@ $typographies: (
     @include assert() {
       @include output {
         .output {
-          @include sf-typography('h1-light');
+          @include sf-typography("h1-light");
         }
       }
       @include expect {
@@ -91,7 +91,7 @@ $typographies: (
     @include assert() {
       @include output {
         .output {
-          @include sf-typography('h1', true);
+          @include sf-typography("h1", true);
         }
       }
       @include expect {
@@ -118,7 +118,7 @@ $typographies: (
     @include assert() {
       @include output {
         .output {
-          @include sf-typography('h1-light', true);
+          @include sf-typography("h1-light", true);
         }
       }
       @include expect {
