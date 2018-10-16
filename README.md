@@ -197,7 +197,7 @@ Easy peasy.
 
 There are a few ways to render your CSS using `sass-fonts`'s built in mixins.
 
-`2.0.0` | [sf-typography($tag, $important: false)](tools/_tools.typography.scss)
+[sf-typography($tag, $important: false)](tools/_tools.typography.scss) `2.0.0`
 
 ```scss
 h1 {
@@ -214,7 +214,7 @@ h2, h3, h4, h5, h6 {
 
 or if you opt not to set up a `$typographies` and prefer to set your typography manually, just `@include sf-family` and `@include sf-font-size` (released in `2.0.2`) which utilizes [inuitcss](https://github.com/inuitcss/inuitcss)'s `@include inuit-font-size`
 
-`2.0.0` | [sf-family($family, $weight: "regular", $important: false)](tools/_tools.family.scss)
+[sf-family($family, $weight: "regular", $important: false)](tools/_tools.family.scss) `2.0.0`
 
 ```scss
 h1 {
@@ -226,7 +226,7 @@ h1 {
 }
 ```
 
-`2.0.2` | [sf-font-size($font-size, $line-height, $letter-spacing, $important: false)](tools/_tools.font-size.scss)
+[sf-font-size($font-size, $line-height, $letter-spacing, $important: false)](tools/_tools.font-size.scss) `2.0.2`
 
 > Syntax sugar for calling `@include inuit-font-size` but with additional 3rd parameter to set our `letter-spacing`.
 
