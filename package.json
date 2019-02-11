@@ -1,6 +1,6 @@
 {
   "name": "sass-fonts",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "Helpers for Fonts - Google, Webfonts and Typekit!",
   "main": "index.js",
   "repository": "git@github.com:xavianaxw/sass-fonts.git",
@@ -28,6 +28,6 @@
     "stylelint-suitcss": "^1.0.0"
   },
   "dependencies": {
-    "inuitcss": "^6.0.0"
+    "sass-mq": "^5.0.0"
   }
 }
