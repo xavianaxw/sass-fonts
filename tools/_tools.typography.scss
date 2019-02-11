@@ -3,6 +3,7 @@
 // ==========================================================================||
 //  Changelog
 //  2.0.0 - created
+//  2.1.0 - remove inuitcss as a dependency
 // ==========================================================================||
 
 @mixin sf-typography($tag, $important: false) {
@@ -32,13 +33,11 @@
 
     @each $bp-namespace, $bp in $breakpoints {
       @if ($bp-namespace == "mobile") {
-        @include inuit-font-size(nth($bp, 1), nth($bp, 2), 0, $impt);
-        letter-spacing: nth($bp, 3) $important;
+        @include sf-font-size(nth($bp, 1), nth($bp, 2), nth($bp, 3), $impt);
       }
       @else {
         @include mq($from: #{$bp-namespace}) {
-          @include inuit-font-size(nth($bp, 1), nth($bp, 2), 0, $impt);
-          letter-spacing: nth($bp, 3) $important;
+          @include sf-font-size(nth($bp, 1), nth($bp, 2), nth($bp, 3), $impt);
         }
       }
     }

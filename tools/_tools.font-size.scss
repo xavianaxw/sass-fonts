@@ -3,9 +3,10 @@
 // ==========================================================================||
 //  Changelog
 //  2.0.2 - created
+//  2.1.0 - remove inuitcss as a dependency
 // ==========================================================================||
 
-@mixin sf-font-size($font-size, $line-height, $letter-spacing, $important: false) {
+@mixin sf-font-size($font-size, $line-height: 1, $letter-spacing: 0px, $important: false) {
   $impt: false;
 
   // Thanks inuitcss!
@@ -20,7 +21,22 @@
     @error "$important needs to be `true` or `false`.";
   }
 
-  @include inuit-font-size($font-size, $line-height, 0, $impt);
+  // font-size
+  @if (type-of($font-size) == number and unit($font-size) == "px") {
+    // Provides a 'px' fallback for old IEs not supporting 'rem' values
+    font-size: $font-size $important;
+    font-size: ($font-size / $sf-global-font-size) * 1rem $important;
+  } @else {
+    @error "font-size value is invalid. Must be a integer pixel.";
+  }
 
+  // line-height
+  @if (type-of($line-height) == number or $line-height == "inherit" or $line-height == "normal") {
+    line-height: $line-height $important;
+  } @else if ($line-height != 'none' and $line-height != false) {
+    @error "`#{$line-height}` is not a valid value for `$line-height`.";
+  }
+
+  // letter-spacing
   letter-spacing: $letter-spacing $important;
 }

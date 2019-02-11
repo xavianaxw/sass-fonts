@@ -1,14 +1,17 @@
 // ==========================================================================||
-//	Tests @include sf-family for google fonts
+//	Tests @include sf-family
+// ==========================================================================||
+//  Changelog
+//  2.0.0 - created
+//  2.1.0 - remove inuitcss as a dependency
 // ==========================================================================||
 
 @import "true";
-@import "../node_modules/inuitcss/tools/tools.font-size";
 @import "../tools/tools.family";
 @import "../tools/tools.font-size";
 
 // $inuit necessities
-$inuit-global-font-size: 16px;
+$sf-global-font-size: 16px;
 
 $overpass-mono: "Overpass Mono", monospace;
 
