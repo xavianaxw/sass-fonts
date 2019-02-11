@@ -1,6 +1,6 @@
 [ ![Codeship Status for xavianaxw/sass-fonts](https://app.codeship.com/projects/3f2ffc80-d3cf-0135-dd3e-0eadded0d45f/status?branch=master)](https://app.codeship.com/projects/262896) [![npm version](https://badge.fury.io/js/sass-fonts.svg)](https://badge.fury.io/js/sass-fonts)
 
-# What is sass-fonts ?
+# What is sass-fonts?
 
 Helper SCSS class to define the typography you use in your project
 
