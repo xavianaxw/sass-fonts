@@ -21,10 +21,6 @@ $ npm install sass-fonts --save
 $ yarn add sass-fonts
 ```
 
-You can download [inuitcss](https://github.com/inuitcss/inuitcss) and save it into your project’s `css/` directory. This
-method is not recommended because you lose the ability to easily and quickly
-manage and update [inuitcss](https://github.com/inuitcss/inuitcss) as a dependency.
-
 ## Getting Started
 
 ```scss
@@ -32,9 +28,9 @@ manage and update [inuitcss](https://github.com/inuitcss/inuitcss) as a dependen
 @import 'settings/settings.typography';
 
 // TOOLS
-@import 'inuitcss/tools/tools.font-size'; // path depends on project setup
 @import 'sass-mq/mq';                     // path depends on project setup
 @import 'sass-fonts/tools/tools.family';
+@import 'sass-fonts/tools/tools.font-size';
 @import 'sass-fonts/tools/tools.typography';
 ```
 
@@ -227,7 +223,7 @@ h1 {
 
 [sf-font-size($font-size, $line-height, $letter-spacing, $important: false)](tools/_tools.font-size.scss) `2.0.2`
 
-Syntax sugar for calling `@include inuit-font-size` but with additional 3rd parameter to set our `letter-spacing`.
+Sets the following properties for you: `font-size`, `line-height` and `letter-spacing`. A fallback for browsers that do not support **rem** will also be provided for `font-size`.
 
 ```scss
 @include sf-font-size(16px, 24px, 0.5px);
