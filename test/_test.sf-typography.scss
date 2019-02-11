@@ -1,12 +1,20 @@
+// ==========================================================================||
+//	Tests @include sf-typography
+// ==========================================================================||
+//  Changelog
+//  2.0.0 - created
+//  2.1.0 - remove inuitcss as a dependency
+// ==========================================================================||
+
 @import "true";
-@import "../node_modules/inuitcss/tools/tools.font-size";
 @import "../node_modules/sass-mq/mq";
 
 @import "../tools/tools.family";
+@import "../tools/tools.font-size";
 @import "../tools/tools.typography";
 
 // $inuit necessities
-$inuit-global-font-size: 16px;
+$sf-global-font-size: 16px;
 
 $overpass-mono: "Overpass Mono", monospace;
 
@@ -45,13 +53,13 @@ $typographies: (
           font-family: "Overpass Mono", monospace;
           font-weight: 400;
           font-size: 28px;
-          font-size: (28px / $inuit-global-font-size) * 1rem;
+          font-size: (28px / $sf-global-font-size) * 1rem;
           line-height: 44px;
           letter-spacing: 0.98px;
 
           @media (min-width: 61.25em) {
             font-size: 36px;
-            font-size: (36px / $inuit-global-font-size) * 1rem;
+            font-size: (36px / $sf-global-font-size) * 1rem;
             line-height: 56px;
             letter-spacing: 1.26px;
           }
@@ -72,13 +80,13 @@ $typographies: (
           font-family: "Overpass Mono", monospace;
           font-weight: 300;
           font-size: 18px;
-          font-size: (18px / $inuit-global-font-size) * 1rem;
+          font-size: (18px / $sf-global-font-size) * 1rem;
           line-height: 30px;
           letter-spacing: 0.6px;
 
           @media (min-width: 61.25em) {
             font-size: 20px;
-            font-size: (20px / $inuit-global-font-size) * 1rem;
+            font-size: (20px / $sf-global-font-size) * 1rem;
             line-height: 32px;
             letter-spacing: 0.7px;
           }
@@ -99,13 +107,13 @@ $typographies: (
           font-family: "Overpass Mono", monospace !important;
           font-weight: 400 !important;
           font-size: 28px !important;
-          font-size: (28px / $inuit-global-font-size) * 1rem !important;
+          font-size: (28px / $sf-global-font-size) * 1rem !important;
           line-height: 44px !important;
           letter-spacing: 0.98px !important;
 
           @media (min-width: 61.25em) {
             font-size: 36px !important;
-            font-size: (36px / $inuit-global-font-size) * 1rem !important;
+            font-size: (36px / $sf-global-font-size) * 1rem !important;
             line-height: 56px !important;
             letter-spacing: 1.26px !important;
           }
@@ -126,13 +134,13 @@ $typographies: (
           font-family: "Overpass Mono", monospace !important;
           font-weight: 300 !important;
           font-size: 18px !important;
-          font-size: (18px / $inuit-global-font-size) * 1rem !important;
+          font-size: (18px / $sf-global-font-size) * 1rem !important;
           line-height: 30px !important;
           letter-spacing: 0.6px !important;
 
           @media (min-width: 61.25em) {
             font-size: 20px !important;
-            font-size: (20px / $inuit-global-font-size) * 1rem !important;
+            font-size: (20px / $sf-global-font-size) * 1rem !important;
             line-height: 32px !important;
             letter-spacing: 0.7px !important;
           }
