@@ -1,4 +1,4 @@
-[![Codeship Status for xavianaxw/sass-fonts](https://app.codeship.com/projects/062f7660-0fe4-0137-bdcb-1ea2dd935f0a/status?branch=master)](https://app.codeship.com/projects/327008) [![npm version](https://badge.fury.io/js/sass-fonts.svg)](https://badge.fury.io/js/sass-fonts)
+[![Codeship Status for xavianaxw/sass-fonts](https://app.codeship.com/projects/062f7660-0fe4-0137-bdcb-1ea2dd935f0a/status?branch=v3)](https://app.codeship.com/projects/327008) [![npm version](https://badge.fury.io/js/sass-fonts.svg)](https://badge.fury.io/js/sass-fonts)
 
 # What is sass-fonts?
 
