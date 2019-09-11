@@ -9,3 +9,8 @@
 - Released with `@include sf-font-size`
 - Remove `text-transform` from `sf-typography` tools
 - Disable prettier
+
+## `v3.0.0`
+
+- Removed all dependency with inuitcss and works on its own
+- Still needs some love from `sass-mq` though
