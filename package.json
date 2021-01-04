@@ -1,6 +1,6 @@
 {
   "name": "sass-fonts",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Helpers for Fonts - Google, Webfonts and Typekit!",
   "main": "index.js",
   "repository": "git@github.com:xavianaxw/sass-fonts.git",

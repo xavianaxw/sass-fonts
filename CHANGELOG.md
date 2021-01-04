@@ -14,3 +14,7 @@
 
 - Removed all dependency with inuitcss and works on its own
 - Still needs some love from `sass-mq` though
+
+## `v3.0.2`
+
+- Fix deprecated warning on `@elseif`
