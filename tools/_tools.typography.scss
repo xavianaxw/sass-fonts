@@ -13,7 +13,7 @@
   @if ($important == true) {
     $important: !important;
     $impt: true;
-  } @elseif ($important == false) {
+  } @else if ($important == false) {
     $important: null;
     $impt: false;
   } @else {
