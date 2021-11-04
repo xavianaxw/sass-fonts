@@ -18,3 +18,7 @@
 ## `v3.0.2`
 
 - Fix deprecated warning on `@elseif`
+
+## `[v3.0.5]`
+
+- Add `font-display: swap`

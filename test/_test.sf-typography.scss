@@ -51,6 +51,7 @@ $typographies: (
       @include expect {
         .output {
           font-family: "Overpass Mono", monospace;
+          font-display: swap;
           font-weight: 400;
           font-size: 28px;
           font-size: (28px / $sf-global-font-size) * 1rem;
@@ -78,6 +79,7 @@ $typographies: (
       @include expect {
         .output {
           font-family: "Overpass Mono", monospace;
+          font-display: swap;
           font-weight: 300;
           font-size: 18px;
           font-size: (18px / $sf-global-font-size) * 1rem;
@@ -105,6 +107,7 @@ $typographies: (
       @include expect {
         .output {
           font-family: "Overpass Mono", monospace !important;
+          font-display: swap;
           font-weight: 400 !important;
           font-size: 28px !important;
           font-size: (28px / $sf-global-font-size) * 1rem !important;
@@ -132,6 +135,7 @@ $typographies: (
       @include expect {
         .output {
           font-family: "Overpass Mono", monospace !important;
+          font-display: swap;
           font-weight: 300 !important;
           font-size: 18px !important;
           font-size: (18px / $sf-global-font-size) * 1rem !important;
