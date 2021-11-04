@@ -21,6 +21,7 @@
 
   @if map-has-key($fonts, $family) {
     font-family: map-get($fonts, $family) $important;
+    font-display: swap;
 
     @if type-of($weight) == "number" {
       font-weight: $weight $important;
