@@ -4,7 +4,10 @@
 //  Changelog
 //  2.0.2 - created
 //  3.0.0 - remove inuitcss as a dependency
+//  3.0.6 - use sass:math.div() instead of standard / to divide numbers
 // ==========================================================================||
+
+@use "sass:math";
 
 @mixin sf-font-size($font-size, $line-height: 1, $letter-spacing: 0px, $important: false) {
   $impt: false;
@@ -25,7 +28,7 @@
   @if (type-of($font-size) == number and unit($font-size) == "px") {
     // Provides a 'px' fallback for old IEs not supporting 'rem' values
     font-size: $font-size $important;
-    font-size: ($font-size / $sf-global-font-size) * 1rem $important;
+    font-size: math.div($font-size, $sf-global-font-size) * 1rem $important;
   } @else {
     @error "font-size value is invalid. Must be a integer pixel.";
   }

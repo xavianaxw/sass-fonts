@@ -22,3 +22,7 @@
 ## `[v3.0.5]`
 
 - Add `font-display: swap`
+
+## `[v3.0.6]`
+
+- Fix `dart-sass` warning on division. Use `math.div` instead
